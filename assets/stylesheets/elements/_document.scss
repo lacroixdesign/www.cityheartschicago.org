@@ -8,7 +8,7 @@ body {
   position: relative;
   background: #fff;
   color: $black;
-  font-family: $typeface-serif;
+  font-family: $font-serif;
   font-size: 100%;
   @include media-ie { min-width: $breakpoint-desktop; }
 
