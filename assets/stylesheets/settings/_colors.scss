@@ -5,9 +5,14 @@ $medium-white: #f4f4f4;
 $dark-white:   #ededed;
 
 // Black
-$black:    #222;
+$black:    #111;
 
 // Grey
 $grey-dark:  #777;
 $grey:       #999;
 $grey-light: #ccc;
+
+// $primary-1: $default-maroon;
+$primary-1: desaturate(lighten($default-maroon, 5), 15);
+
+$secondary-1: desaturate(lighten($default-maroon, 15), 25);

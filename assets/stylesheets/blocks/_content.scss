@@ -1,4 +1,4 @@
-.b-text {
+.b-content {
   p,
   li {
     margin-bottom: 1em;
@@ -129,13 +129,4 @@
     padding: 0 0.25em;
     background: $off-white;
   }
-} // .b-text
-
-.b-tagline {
-  color: $default-blue;
-  font-family: $font-serif;
-  font-size: 1.125em;
-  font-style: italic;
-  text-align: center;
-  text-rendering: optimizeLegibility;
-}
+} // .b-content

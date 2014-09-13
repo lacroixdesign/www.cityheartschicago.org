@@ -1,16 +1,18 @@
 @charset "UTF-8";
 
+@import "boarding_pass";
+
 // Settings
 @import "settings/typography";
 @import "settings/layout";
 @import "settings/colors";
 
 // Vendor
-@import "boarding_pass";
 @import "vendor/slick";
 @import "vendor/animate.min";
 
 // Libs
+@import "lib/functions";
 @import "lib/ie";
 @import "lib/flexbox";
 @import "lib/utilities";
@@ -33,7 +35,7 @@
 
 // Blocks/modules
 @import "blocks/containers";
-@import "blocks/text";
+@import "blocks/content";
 @import "blocks/menu";
 @import "blocks/sections";
 @import "blocks/heros";
@@ -45,3 +47,5 @@
 @import "sections/nav";
 @import "sections/footer";
 @import "sections/404";
+@import "sections/home/intro";
+@import "sections/home/about";

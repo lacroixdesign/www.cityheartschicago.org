@@ -1,0 +1,15 @@
+.s-footer {
+  padding: 3em $page-gutter;
+  background: $primary-1;
+  // background: $secondary-1;
+  color: $white;
+  // color: darken($primary-1, 10);
+  font-family: $font-sans;
+
+  .copyright {
+    font-size: 0.8125em;
+    // font-weight: 900;
+    text-align: center;
+    text-rendering: optimizeLegibility;
+  }
+} // .s-footer

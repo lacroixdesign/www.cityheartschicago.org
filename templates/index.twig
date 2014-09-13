@@ -1,14 +1,17 @@
 {% extends "layout/base" %}
 
 {% block content %}
-  <h1>{{ entry.heading }}</h1>
 
-  {{ entry.body }}
+  <section id="welcome" class="s-home-intro">
+    <h1>{{ siteName }}</h1>
+    <p>{{ company.briefMissionStatement }}</p>
+  </section>
 
-  <h2>Recent News</h2>
-  <ul>
-    {% for entry in craft.entries.section('news').limit(5).find() %}
-      <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-    {% endfor %}
-  </ul>
+  <section id="mission-statement" class="s-home-about">
+    <div class="l-constrained-medium b-content">
+      <h1>Mission Statement</h1>
+      {{ entry.body }}
+    </div>
+  </section>
+
 {% endblock %}

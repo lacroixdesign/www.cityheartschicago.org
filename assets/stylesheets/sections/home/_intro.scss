@@ -1,0 +1,18 @@
+.s-home-intro {
+  padding: 8em $page-gutter;
+  background: $black image-url('stones.jpg');
+  @extend %cover-image;
+  color: $white;
+  text-align: center;
+
+  h1 {
+    font-size: 6em;
+  }
+
+  p {
+    max-width: 30em;
+    margin: auto;
+    font-size: 1.5em;
+    font-style: italic;
+  }
+} // .s-home-intro

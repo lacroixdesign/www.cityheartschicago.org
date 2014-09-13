@@ -10,52 +10,52 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
 }
 
-$h1-font-size: 2.61792em;
+$h1-font-size: 2.5em;
 h1 {
   margin: 0 0 0.63027em;
   font-size: $h1-font-size;
   font-weight: 900;
-  line-height: 1.13em;
+  line-height: 1.15;
 }
 
-$h2-font-size: 2.0225em;
+$h2-font-size: 2em;
 h2 {
   margin: 0 0 0.81582em;
   font-size: $h2-font-size;
   font-weight: 900;
-  line-height: 1.35em;
+  line-height: 1.25;
 }
 
-$h3-font-size: 1.818em;
+$h3-font-size: 1.5em;
 h3 {
   margin: 0 0 0.5em;
   font-size: $h3-font-size;
   font-weight: 900;
-  line-height: 1.25em;
+  line-height: 1.375;
 }
 
-$h4-font-size: 1.618em;
+$h4-font-size: 1.25em;
 h4 {
   margin: 0 0 0.5em;
   font-size: $h4-font-size;
   font-weight: bold;
-  line-height: 1.25em;
+  line-height: 1.375;
 }
 
-$h5-font-size: 1.432em;
+$h5-font-size: 1em;
 h5 {
   margin: 0 0 0.5em;
   font-size: $h5-font-size;
   font-weight: bold;
-  line-height: 1.25em;
+  line-height: 1.375;
 }
 
-$h6-font-size: 1.35em;
+$h6-font-size: 0.875em;
 h6 {
   margin: 0 0 0.5em;
   font-size: $h6-font-size;
   font-weight: 400;
-  line-height: 1.25em;
+  line-height: 1.375;
 }
 
 p {
