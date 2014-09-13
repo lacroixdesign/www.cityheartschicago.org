@@ -1,0 +1,9 @@
+.env
+node_modules
+
+# Craft
+craft/storage/backups/
+craft/storage/runtime/
+craft/storage/userphotos/
+
+public/cache/

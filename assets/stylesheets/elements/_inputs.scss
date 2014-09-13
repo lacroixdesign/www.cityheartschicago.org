@@ -1,0 +1,81 @@
+@function input-padding($base) {
+  @return $base * 3 / 4;
+}
+
+@function input-height($base) {
+  $padding: input-padding($base);
+  @return $base + ($padding * 2);
+}
+
+@mixin input-sizing($base) {
+  height: input-height($base);
+  padding: input-padding($base);
+  font-size: $base;
+  line-height: normal;
+}
+
+@mixin input($bg: white, $color: #555) {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  box-shadow: none;
+  background: $bg;
+  color: $color;
+  font-family: $font-sans;
+  @include input-sizing($input-height-normal);
+
+  &:focus {
+    border: none;
+    border-bottom: 2px solid $black;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+  }
+
+  @include placeholder {
+    color: #ccc;
+  }
+
+  &.size--small {
+    @include input-sizing($input-height-small);
+  }
+  &.size--large {
+    @include input-sizing($input-height-large);
+  }
+
+} // @mixin input
+
+textarea,
+input.input,
+input[type="tel"],
+input[type="url"],
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="number"],
+input[type="password"] {
+  @include input($off-white, $black);
+}
+
+textarea {
+  height: 5em;
+}
+
+label {
+  color: $grey-dark;
+  font-size: 0.75em;
+  font-family: $font-sans;
+  text-transform: uppercase;
+}
+
+.input__group {
+  margin-bottom: 1em;
+
+  label {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+} // .input__group

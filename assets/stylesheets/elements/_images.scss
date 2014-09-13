@@ -1,0 +1,22 @@
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.image-fullwidth {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.image-fullheight {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+.image-circle {
+  display: block;
+  border-radius: 500px;
+}

@@ -1,0 +1,141 @@
+.b-text {
+  p,
+  li {
+    margin-bottom: 1em;
+    line-height: 1.75;
+  }
+
+  p,
+  ul {
+    a,
+    a:focus,
+    a:visited {
+      color: $default-blue;
+    }
+
+    a:hover {
+      color: lighten($default-blue, 10);
+    }
+  } // p, ul
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 2.25em;
+    margin: 1.5em auto;
+  }
+
+  ul ul {
+    list-style: circle;
+  }
+
+  ul ul ul {
+    list-style: square;
+  }
+
+  blockquote {
+    padding: 0 1em;
+    margin: 1.5em 1em;
+    border-left: 5px solid #eee;
+    color: $black;
+    quotes: "\201C""\201D""\2018""\2019";
+  }
+
+  blockquote:after {
+    content: no-close-quote;
+  }
+
+  blockquote p {
+    margin-top: 1em;
+  }
+
+  img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 1em auto;
+  }
+
+  figure figcaption {
+    $font-size: 0.625em;
+    padding: 0 #{($page-gutter / $font-size)}em;
+    color: $grey;
+    font-family: $font-sans;
+    font-size: $font-size;
+    line-height: 1.75;
+
+    a {
+      color: $default-blue;
+    }
+  } // figure figcaption
+
+  .figure-small {
+    max-width: $layout-width-small;
+    margin: 1.5em auto;
+  }
+
+  .video {
+    margin: 1.5em #{$page-gutter * -1};
+
+    > div,
+    > iframe {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+  } // .video
+
+  .image-stretch-wrap {
+    margin: 1.5em #{$page-gutter * -1};
+  }
+
+  .pullquote {
+    margin: 1.5em auto;
+    text-align: center;
+
+    p {
+      margin-bottom: 0;
+      color: $default-blue;
+      font-size: 1.5em;
+      font-style: italic;
+      line-height: 1.375;
+    }
+
+    figcaption {
+      margin-top: 1em;
+      font-size: 1em;
+    }
+  } // .pullquote
+
+  .tweet {
+    margin: 1.5em auto;
+  }
+
+  pre {
+    padding: 1em $page-gutter;
+    margin: 1.5em #{$page-gutter * -1};
+    background: $off-white;
+  }
+
+  pre code {
+    font-size: 0.75em;
+  }
+
+  p code {
+    display: inline-block;
+    padding: 0 0.25em;
+    background: $off-white;
+  }
+} // .b-text
+
+.b-tagline {
+  color: $default-blue;
+  font-family: $font-serif;
+  font-size: 1.125em;
+  font-style: italic;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+}

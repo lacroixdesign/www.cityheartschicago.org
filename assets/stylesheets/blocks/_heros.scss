@@ -1,0 +1,40 @@
+@mixin hero-image($pad-small: 4em, $pad-large: 7em) {
+  padding: $pad-small 0;
+  background-color: $black;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  color: $off-white;
+  text-align: center;
+
+  &.hero-image__top-center {
+    background-position: top center;
+  }
+
+  @include media(min-width 500px min-height 500px) {
+    padding: $pad-large 0;
+  }
+
+  @include media-ie {
+    padding: $pad-large 0;
+  }
+} // @mixin hero-image
+
+.b-hero-image {
+  @include hero-image;
+}
+
+.b-hero-image__content {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  @include media(500px) {
+    h1 { font-size: 2.25em; }
+  }
+
+  @include media-ie($breakpoint-ipad) {
+    h1 { font-size: $h1-font-size; }
+  }
+} // .b-hero-image__content
