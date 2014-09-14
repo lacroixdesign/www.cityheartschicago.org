@@ -1,4 +1,23 @@
 {
-  "buttons": ["html","|","formatting","|","bold","italic","|","unorderedlist","orderedlist","|","link"],
+  "buttons": [
+    "html",
+    "|",
+    "formatting",
+    "|",
+    "bold",
+    "italic",
+    "|",
+    "unorderedlist",
+    "orderedlist",
+    "|",
+    "link"
+  ],
+  "formattingTags": [
+    "p",
+    "blockquote",
+    "h3",
+    "h4",
+    "h5"
+  ],
   "plugins": ["fullscreen"]
 }
