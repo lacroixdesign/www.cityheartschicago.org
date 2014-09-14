@@ -1,18 +1,45 @@
-.s-home-intro {
-  padding: 8em $page-gutter;
-  background: $black image-url('stones.jpg');
-  @extend %cover-image;
-  color: $white;
-  text-align: center;
+@mixin home-intro-large-styles {
+  padding-top: 8em;
+  padding-bottom: 8em;
 
   h1 {
     font-size: 6em;
   }
 
   p {
+    font-size: 1.5em;
+  }
+} // home-intro-large-styles
+
+.s-home-intro {
+  padding: 4em $page-gutter;
+  background: $black image-url('stones.jpg');
+  @extend %cover-image;
+  color: $white;
+  text-align: center;
+
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
     max-width: 30em;
     margin: auto;
-    font-size: 1.5em;
+    font-size: 1em;
     font-style: italic;
+  }
+
+  @include media(375px) {
+    h1 {
+      font-size: 4em;
+    }
+  } // 375px
+
+  @include media(min-width 600px min-height 500px) {
+    @include home-intro-large-styles;
+  }
+
+  @include media-ie {
+    @include home-intro-large-styles;
   }
 } // .s-home-intro
