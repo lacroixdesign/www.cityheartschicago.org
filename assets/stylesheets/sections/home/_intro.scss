@@ -13,8 +13,9 @@
 
 .s-home-intro {
   padding: 4em $page-gutter;
-  background: $black image-url('stones.jpg');
-  @extend %cover-image;
+  @extend .cover-image;
+  background-color: $black;
+  background-image: image-url('stones.jpg');
   color: $white;
   text-align: center;
 

@@ -7,10 +7,17 @@
     <p>{{ company.briefMissionStatement }}</p>
   </section>
 
-  <section id="mission-statement" class="s-home-about">
+  <section id="about" class="b-section s-home-about">
     <div class="l-constrained-medium b-content">
-      <h1>Mission Statement</h1>
-      {{ entry.body }}
+      <h1 class="small-section-title">About</h1>
+      {{ entry.about }}
+    </div>
+  </section>
+
+  <section id="help" class="b-section inverse s-home-help">
+    <div class="l-constrained-medium b-content">
+      <h1 class="small-section-title">How You Can Help</h1>
+      {{ entry.help }}
     </div>
   </section>
 
