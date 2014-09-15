@@ -11,15 +11,16 @@
 
     {% if block.type == "richText" %}
 
-    <section class="b-section {% if loop.index0 == 1 %}alt{% endif %}"
+      <section class="b-section {% if loop.index0 == 1 %}alt{% endif %}"
                 {% if block.menuTitle is not empty %}
-                  id="{{ block.menuTitle|lower|replace(" ", "-") }}"
+                  id="{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
                 {% endif %}>
         <div class="l-constrained-medium b-content">
           {{ block.body }}
         </div>
       </section>
 
+    {% elseif block.type == "callout" %}
     {% elseif block.type == "gallery" %}
     {% endif %}
 
