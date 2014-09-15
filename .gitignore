@@ -7,4 +7,5 @@ craft/storage/runtime/
 craft/storage/userphotos/
 
 public/cache/
-public/content/
+public/content/images/*
+!public/content/images/.gitkeep
