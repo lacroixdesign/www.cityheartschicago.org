@@ -7,18 +7,22 @@
     <p>{{ company.briefMissionStatement }}</p>
   </section>
 
-  <section id="about" class="b-section s-home-about">
-    <div class="l-constrained-medium b-content">
-      <h1 class="small-section-title">About</h1>
-      {{ entry.about }}
-    </div>
-  </section>
+  {% for block in entry.homePageSections %}
 
-  <section id="help" class="b-section inverse s-home-help">
-    <div class="l-constrained-medium b-content">
-      <h1 class="small-section-title">How You Can Help</h1>
-      {{ entry.help }}
-    </div>
-  </section>
+    {% if block.type == "richText" %}
+
+    <section class="b-section {% if loop.index0 == 1 %}alt{% endif %}"
+                {% if block.menuTitle is not empty %}
+                  id="{{ block.menuTitle|lower|replace(" ", "-") }}"
+                {% endif %}>
+        <div class="l-constrained-medium b-content">
+          {{ block.body }}
+        </div>
+      </section>
+
+    {% elseif block.type == "gallery" %}
+    {% endif %}
+
+  {% endfor %}
 
 {% endblock %}

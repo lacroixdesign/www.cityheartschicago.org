@@ -7,12 +7,12 @@
   padding-top: 3em;
   padding-bottom: 3em;
 
-  &.inverse {
+  &.alt {
     background: $off-white;
   }
 
   @include media-ie(600px) {
-    padding-top: 5em;
-    padding-bottom: 5em;
+    padding-top: 3.5em;
+    padding-bottom: 3.5em;
   }
 } // .b-section

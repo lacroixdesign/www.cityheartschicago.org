@@ -7,3 +7,4 @@ craft/storage/runtime/
 craft/storage/userphotos/
 
 public/cache/
+public/content/
