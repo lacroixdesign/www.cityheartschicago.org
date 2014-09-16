@@ -19,5 +19,6 @@
     "h4",
     "h5"
   ],
+  "tabFocus": false,
   "plugins": ["fullscreen"]
 }
