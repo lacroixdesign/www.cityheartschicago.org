@@ -5,6 +5,8 @@
   @if $border-color == inherit {
     $border-color: $color;
   }
+  $bg: transparent;
+
   @include appearance(none);
   position: relative;
   z-index: 1;
@@ -12,7 +14,6 @@
   padding: 1em;
   margin: 0.25em 0;
   font-family: $font-sans;
-  font-size: 0.875em;
   font-size: 0.8125em;
   font-style: normal;
   font-weight: bold;
@@ -29,11 +30,11 @@
   border: $border-size solid $border-color;
   border-radius: 500px;
   box-shadow: none;
-  background: transparent;
+  background: $bg;
   color: $color;
 
   &:visited {
-    background: transparent;
+    background: $bg;
     color: $color;
   }
 
@@ -55,7 +56,7 @@
   &[disabled]:hover,
   &[disabled]:active {
     @include opacity(0.5);
-    background: transparent;
+    background: $bg;
   }
 
   &.square {
@@ -82,7 +83,7 @@
 
   &.animate-faux-progress {
     $transition-time: 4s;
-    background: transparent;
+    background: $bg;
     color: $inverse;
 
     &:after {
@@ -100,7 +101,7 @@
 
     &:hover,
     &:active {
-      background: transparent;
+      background: $bg;
     }
   } // &.animate-faux-progress
 
