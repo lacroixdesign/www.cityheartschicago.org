@@ -1,0 +1,5 @@
+.s-home {
+  .b-section:nth-child(even) {
+    @extend .b-section.alt;
+  }
+} // .s-home

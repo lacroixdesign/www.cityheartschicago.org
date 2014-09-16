@@ -2,28 +2,53 @@
 
 {% block content %}
 
-  <section id="welcome" class="s-home-intro">
-    <h1>{{ siteName }}</h1>
-    <p>{{ company.briefMissionStatement }}</p>
-  </section>
+  <div class="s-home">
 
-  {% for block in entry.homePageSections %}
+    <section id="welcome" class="s-home-intro">
+      <h1>{{ siteName }}</h1>
+      <p>{{ company.briefMissionStatement }}</p>
+    </section>
 
-    {% if block.type == "richText" %}
+    <section>
+      {% for block in entry.homePageSections %}
 
-      <section class="b-section {% if loop.index0 == 1 %}alt{% endif %}"
-                {% if block.menuTitle is not empty %}
-                  id="{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
-                {% endif %}>
-        <div class="l-constrained-medium b-content">
-          {{ block.body }}
-        </div>
-      </section>
+        {% if block.type == "richText" %}
 
-    {% elseif block.type == "callout" %}
-    {% elseif block.type == "gallery" %}
-    {% endif %}
+          <article class="b-section"
+                    {% if block.menuTitle is not empty %}
+                      id="{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
+                    {% endif %}>
+            <div class="l-constrained-medium b-content">
+              {{ block.body }}
+            </div>
+          </article>
 
-  {% endfor %}
+        {% elseif block.type == "callout" %}
+
+          {% if block.body is not empty or
+                (block.ctaText is not empty and block.ctaUrl is not empty) %}
+            <article class="b-callout">
+              <div class="l-constrained-medium b-content">
+                {% if block.body is not empty %}
+                  {{ block.body }}
+                {% endif %}
+                {% if block.ctaText is not empty and block.ctaUrl is not empty %}
+                  <a href="{{ block.ctaUrl }}"
+                      class="btn-bright-inverse"
+                      target="{{ block.ctaTarget }}">
+                    {{ block.ctaText }}
+                  </a>
+                {% endif %}
+              </div>
+            </article>
+          {% endif %}
+
+        {% elseif block.type == "gallery" %}
+        {% endif %}
+
+      {% endfor %}
+    </section>
+
+  </div>
 
 {% endblock %}

@@ -41,10 +41,12 @@
 @import "blocks/heros";
 @import "blocks/slideshow";
 @import "blocks/pagination";
+@import "blocks/callouts";
 
 // Sections
 @import "sections/header";
 @import "sections/nav";
 @import "sections/footer";
 @import "sections/404";
+@import "sections/home/index";
 @import "sections/home/intro";

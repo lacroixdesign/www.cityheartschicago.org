@@ -11,9 +11,10 @@
   display: inline-block;
   padding: 1em;
   margin: 0.25em 0;
-  font-family: $font-serif;
+  font-family: $font-sans;
   font-size: 0.875em;
-  font-style: italic;
+  font-size: 0.8125em;
+  font-style: normal;
   font-weight: bold;
   line-height: normal;
   text-align: center;
@@ -26,7 +27,7 @@
   @include transition(none);
 
   border: $border-size solid $border-color;
-  border-radius: 2px;
+  border-radius: 500px;
   box-shadow: none;
   background: transparent;
   color: $color;
@@ -55,6 +56,10 @@
   &[disabled]:active {
     @include opacity(0.5);
     background: transparent;
+  }
+
+  &.square {
+    border-radius: 2px;
   }
 
   &.large {
@@ -118,8 +123,16 @@
   // $inverse
 }
 
-.btn-bright {
+.btn-inverse {
   @include btn($white, $black, $border-size: 2px);
+}
+
+.btn-bright {
+  @include btn($primary-1, $white, $border-size: 2px);
+}
+
+.btn-bright-inverse {
+  @include btn($white, $primary-1, $border-size: 2px);
 }
 
 .btn-subtle {
