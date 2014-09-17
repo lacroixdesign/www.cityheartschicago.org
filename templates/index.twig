@@ -5,8 +5,8 @@
   <div class="s-home">
 
     <section id="welcome" class="s-home-intro">
-      <h1>{{ siteName }}</h1>
-      <p>{{ company.briefMissionStatement }}</p>
+      <h1 class="a-wow fadeInDown">{{ siteName }}</h1>
+      <p class="a-wow fadeInUp">{{ company.briefMissionStatement }}</p>
     </section>
 
     <section>
@@ -18,7 +18,8 @@
                     {% if block.menuTitle is not empty %}
                       id="{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
                     {% endif %}>
-            <div class="l-constrained-medium b-content">
+            <div class="l-constrained-medium b-content a-wow fadeIn"
+                  data-wow-delay="0.3s">
               {{ block.body }}
             </div>
           </article>
@@ -27,14 +28,18 @@
 
           {% if block.body is not empty or
                 (block.ctaText is not empty and block.ctaUrl is not empty) %}
-            <article class="b-callout">
+            <article class="b-callout a-wow fadeIn"
+                      data-wow-delay="0.1s"
+                      data-wow-offset="50">
               <div class="l-constrained-medium b-content">
                 {% if block.body is not empty %}
                   {{ block.body }}
                 {% endif %}
                 {% if block.ctaText is not empty and block.ctaUrl is not empty %}
                   <a href="{{ block.ctaUrl }}"
-                      class="btn-bright-inverse"
+                      class="btn-bright-inverse a-wow flipInX"
+                      data-wow-delay="0.3s"
+                      data-wow-offset="50"
                       target="{{ block.ctaTarget }}">
                     {{ block.ctaText }}
                   </a>
