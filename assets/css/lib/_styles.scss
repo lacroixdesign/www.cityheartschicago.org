@@ -1,6 +1,6 @@
 @mixin text-selection-styles {
-  color: $off-white;
-  background: $black;
+  color: $white;
+  background: $primary-1;
 }
 
 @mixin underline-self-on-hover-only {
