@@ -5,7 +5,7 @@
   @if $border-color == inherit {
     $border-color: $color;
   }
-  $bg: $inverse;
+  $bg: transparent;
 
   @include appearance(none);
   position: relative;
