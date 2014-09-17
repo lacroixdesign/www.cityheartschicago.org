@@ -5,7 +5,7 @@
   @if $border-color == inherit {
     $border-color: $color;
   }
-  $bg: transparent;
+  $bg: $inverse;
 
   @include appearance(none);
   position: relative;
@@ -16,7 +16,7 @@
   font-family: $font-sans;
   font-size: 0.8125em;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 900;
   line-height: normal;
   text-align: center;
   vertical-align: middle;
@@ -25,7 +25,7 @@
   white-space: nowrap;
   cursor: pointer;
   @include user-select(none);
-  @include transition(none);
+  @include transition(box-shadow 0.25s ease);
 
   border: $border-size solid $border-color;
   border-radius: 500px;
@@ -39,6 +39,7 @@
   }
 
   &:hover {
+    box-shadow: 0 0 0 8px rgba($color, 0.3);
     background: $color;
     color: $inverse !important;
   }
@@ -133,7 +134,7 @@
 }
 
 .btn-bright-inverse {
-  @include btn($white, $primary-1, $border-size: 2px);
+  @include btn($white, $primary-1, $border-size: 3px);
 }
 
 .btn-subtle {
