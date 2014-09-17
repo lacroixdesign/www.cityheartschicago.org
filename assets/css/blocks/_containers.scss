@@ -32,8 +32,13 @@ $containers-bp: $breakpoint-desktop;
 }
 
 .l-constrained-large {
-  // 30em, 40em
+  // 30em, 37em
   @include page-container($layout-width-medium, $layout-width-large);
+}
+
+.l-constrained-xlarge {
+  // 30em, 40em
+  @include page-container($layout-width-medium, $layout-width-xlarge);
 }
 
 .l-unconstrained {
