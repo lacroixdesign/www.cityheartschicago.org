@@ -1,7 +1,12 @@
 .b-slideshow {
   width: 100%;
+  margin: 0 auto;
 
   article {
     overflow: hidden;
+  }
+
+  .slick-dots {
+    bottom: 1em;
   }
 } // .b-slideshow

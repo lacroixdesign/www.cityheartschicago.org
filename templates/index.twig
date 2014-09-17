@@ -16,7 +16,7 @@
 
           <article class="b-section"
                     {% if block.menuTitle is not empty %}
-                      id="{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
+                      id="section-{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
                     {% endif %}>
             <div class="l-constrained-large b-content a-wow fadeIn"
                   data-wow-delay="0.3s">
@@ -51,6 +51,22 @@
           {% endif %}
 
         {% elseif block.type == "gallery" %}
+
+          {% if block.images is not empty %}
+            <section class="b-slideshow" data-carousel>
+              {% for image in block.images %}
+                <article id="slide-{{ block.id }}-{{ image.id }}" class="b-slide">
+                  {{ image.img }}
+                  {# <img src="{{ image.url }}"
+                        alt="{{ image.filename }}"
+                        width="{{ image.width }}"
+                        height="{{ image.height }}"
+                        class="image-fullwidth"> #}
+                </article>
+              {% endfor %}
+            </section>
+          {% endif %}
+
         {% endif %}
 
       {% endfor %}

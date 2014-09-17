@@ -1,18 +1,19 @@
 @charset "UTF-8";
 
 @import "boarding_pass";
+@import "lib/functions";
 
 // Settings
 @import "settings/typography";
 @import "settings/layout";
 @import "settings/colors";
+@import "settings/slick";
 
 // Vendor
 @import "vendor/slick";
 @import "vendor/animate.min";
 
 // Libs
-@import "lib/functions";
 @import "lib/ie";
 @import "lib/flexbox";
 @import "lib/utilities";
