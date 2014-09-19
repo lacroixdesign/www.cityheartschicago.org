@@ -1,14 +1,20 @@
 .s-footer {
-  padding: 3em $page-gutter;
+  padding: 3.5em $page-gutter;
   background: $primary-1;
-  // background: $secondary-1;
   color: $white;
-  // color: darken($primary-1, 10);
   font-family: $font-sans;
 
+  .credit {
+    font-family: $font-serif;
+    font-size: 0.75em;
+    font-style: italic;
+    text-align: center;
+    @include underline-links-on-hover-only;
+  }
+
   .copyright {
+    margin-top: 1.5em;
     font-size: 0.8125em;
-    // font-weight: 900;
     text-align: center;
     text-rendering: optimizeLegibility;
   }
