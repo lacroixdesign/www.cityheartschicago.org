@@ -20,8 +20,10 @@ $grey-light: #d5d3d4;
 // $primary-1: $default-maroon;
 // $primary-1: desaturate(lighten($default-maroon, 5), 15);
 $primary-1: #8e255b;
+// $primary-2: desaturate(lighten($default-maroon, 15), 25);
+$primary-2: #ab3b73;
 
-// $secondary-1: desaturate(lighten($default-maroon, 15), 25);
-$secondary-1: #ab3b73;
+$secondary-1: #4fa095;
+// $secondary-1: #59a096;
 
 $tertiary-1: desaturate(lighten($secondary-1, 10), 10);

@@ -5,8 +5,10 @@
   <div class="s-home">
 
     <section id="welcome" class="s-home-intro">
-      <h1 class="a-wow fadeInDown">{{ siteName }}</h1>
-      <p class="a-wow fadeInUp">{{ company.briefMissionStatement }}</p>
+      <h1 class="a-wow fadeIn">{{ siteName }}</h1>
+      <p class="a-wow fadeIn">
+        {{ company.briefMissionStatement }}
+      </p>
     </section>
 
     <section>
@@ -18,7 +20,7 @@
                     {% if block.menuTitle is not empty %}
                       id="section-{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
                     {% endif %}>
-            <div class="l-constrained-large b-content a-wow fadeIn"
+            <div class="l-constrained-large b-content a-wow fadeInUp"
                   data-wow-delay="0.3s">
               {{ block.body }}
             </div>
@@ -53,9 +55,10 @@
         {% elseif block.type == "gallery" %}
 
           {% if block.images is not empty %}
-            <section class="b-slideshow" data-carousel>
+            <section class="b-slideshow  a-wow fadeIn" data-carousel>
               {% for image in block.images %}
                 <article id="slide-{{ block.id }}-{{ image.id }}" class="b-slide">
+                  {% do image.setTransform('carousel') %}
                   {{ image.img }}
                   {# <img src="{{ image.url }}"
                         alt="{{ image.filename }}"

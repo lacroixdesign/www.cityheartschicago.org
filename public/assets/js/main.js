@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"./assets/js/main.js":[function(require,module,exports){
 require("es5-shim"),require("es5-shim/es5-sham"),require("./features/scroll-animations"),require("./features/carousel");
 },{"./features/carousel":"/Users/michael/Code/cityhearts/assets/js/features/carousel.js","./features/scroll-animations":"/Users/michael/Code/cityhearts/assets/js/features/scroll-animations.js","es5-shim":"/Users/michael/Code/cityhearts/node_modules/es5-shim/es5-shim.js","es5-shim/es5-sham":"/Users/michael/Code/cityhearts/node_modules/es5-shim/es5-sham.js"}],"/Users/michael/Code/cityhearts/assets/js/features/carousel.js":[function(require,module,exports){
-$(function(){var a=$("[data-carousel]");a.slick({slide:"article",dots:!0,speed:400,fade:!1,arrows:!1,draggable:!0,autoplay:!0,autoplaySpeed:3e3})});
+$(function(){var a=$("[data-carousel]"),e={slide:"article",dots:!0,speed:400,fade:!1,arrows:!1,draggable:!0,autoplay:!0,autoplaySpeed:4e3,vertical:!1,pauseOnHover:!0,pauseOnDotsHover:!0};a.slick(e)});
 },{}],"/Users/michael/Code/cityhearts/assets/js/features/scroll-animations.js":[function(require,module,exports){
 $(function(){Modernizr.cssanimations&&"undefined"!=typeof WOW&&new WOW({boxClass:"a-wow",mobile:!1}).init()});
 },{}],"/Users/michael/Code/cityhearts/node_modules/es5-shim/es5-sham.js":[function(require,module,exports){

@@ -6,7 +6,17 @@
     overflow: hidden;
   }
 
+  img {
+    width: 100%;
+    height: auto;
+  }
+
   .slick-dots {
-    bottom: 1em;
+    position: static;
+    margin-top: 0.25em;
+  }
+
+  .slick-dots li {
+    margin: 0;
   }
 } // .b-slideshow
