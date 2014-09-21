@@ -25,7 +25,7 @@
     display: block;
     height: 4px;
     border-top: 2px solid $white;
-    background: $black;
+    background: $black-2;
     @include transition(all 200ms linear);
   }
 
