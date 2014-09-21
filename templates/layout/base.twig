@@ -59,13 +59,12 @@
 </head>
 
 <body>
-  {% block header %}
-    {% include "layout/header.twig" %}
-  {% endblock %}
+  {% include "layout/nav.twig" %}
+  {% include "layout/header.twig" %}
 
-  {% block content %}
-    <pre>Oops, no content block was provided!</pre>
-  {% endblock %}
+  <div id="main" role="main">
+    {% block content %}{% endblock %}
+  </div>
 
   {% block footer %}
     {% include "layout/footer.twig" %}

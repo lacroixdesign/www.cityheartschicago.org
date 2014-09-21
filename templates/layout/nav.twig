@@ -1,0 +1,18 @@
+{% set home = craft.entries.slug('homepage').limit(1)|first %}
+
+<nav id="nav" class="s-nav" role="navigation">
+  <ul>
+    {% for block in home.homePageSections %}
+      {% if block.type == "richText" and block.menuTitle is not empty %}
+        <li>
+          <a href="#section-{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}">
+            {{ block.menuTitle }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+</nav>

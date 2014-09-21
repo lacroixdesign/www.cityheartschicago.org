@@ -1,0 +1,17 @@
+.s-header {
+  display: none;
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  z-index: 1001;
+
+  .js & {
+    display: block;
+  }
+
+  a {
+    background: $white;
+    width: 2em;
+    height: 2em;
+  }
+} // .s-header

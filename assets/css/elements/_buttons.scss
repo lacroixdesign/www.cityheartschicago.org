@@ -133,8 +133,16 @@
   @include btn($primary-1, $white, $border-size: 2px);
 }
 
+.btn-alt {
+  @include btn($secondary-1, $white, $border-size: 2px);
+}
+
 .btn-bright-inverse {
   @include btn($white, $primary-1, $border-size: 3px);
+}
+
+.btn-alt-inverse {
+  @include btn($white, $secondary-1, $border-size: 3px);
 }
 
 .btn-subtle {
