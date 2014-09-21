@@ -8,10 +8,62 @@
   .js & {
     display: block;
   }
-
-  a {
-    background: $white;
-    width: 2em;
-    height: 2em;
-  }
 } // .s-header
+
+#nav-toggle-btn {
+  position: relative;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+
+  .line {
+    position: absolute;
+    right: 20%;
+    left: 20%;
+    right: 0;
+    left: 0;
+    display: block;
+    height: 5px;
+    border: 1px solid $black;
+    border: 1px solid rgba($black, 0.1);
+    border: 1px solid rgba($black-2, 0.2);
+    background: $white;
+    @include transition(all 200ms linear);
+  }
+
+  .line-1 {
+    top: 20%;
+  }
+  .line-2 {
+    top: 50%;
+  }
+  .line-3 {
+    top: 80%;
+  }
+
+  .js.csstransforms3d #{$nav-is-open} & {
+    .line {
+      top: 50%;
+      border-color: $primary-1;
+      border-color: transparent;
+      background: $white;
+    }
+
+    .line-1 {
+      // top: 50%;
+      @include transform-origin(center);
+      @include transform( rotate3d(0,0,1,45deg) );
+    }
+
+    .line-2 {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .line-3 {
+      // top: 50%;
+      @include transform-origin(center);
+      @include transform( rotate3d(0,0,1,-45deg) );
+    }
+  } // nav open
+} // #nav-toggle-btn

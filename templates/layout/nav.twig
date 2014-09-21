@@ -2,6 +2,7 @@
 
 <nav id="nav" class="s-nav" role="navigation">
   <ul>
+    <li><a href="/">Home</a></li>
     {% for block in home.homePageSections %}
       {% if block.type == "richText" and block.menuTitle is not empty %}
         <li>
@@ -11,8 +12,6 @@
         </li>
       {% endif %}
     {% endfor %}
-    <li>
-      <a href="#contact">Contact</a>
-    </li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
