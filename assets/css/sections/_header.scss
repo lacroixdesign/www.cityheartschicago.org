@@ -23,11 +23,9 @@
     right: 0;
     left: 0;
     display: block;
-    height: 5px;
-    border: 1px solid $black;
-    border: 1px solid rgba($black, 0.1);
-    border: 1px solid rgba($black-2, 0.2);
-    background: $white;
+    height: 4px;
+    border-top: 2px solid $white;
+    background: $black;
     @include transition(all 200ms linear);
   }
 
@@ -50,7 +48,6 @@
     }
 
     .line-1 {
-      // top: 50%;
       @include transform-origin(center);
       @include transform( rotate3d(0,0,1,45deg) );
     }
@@ -61,7 +58,6 @@
     }
 
     .line-3 {
-      // top: 50%;
       @include transform-origin(center);
       @include transform( rotate3d(0,0,1,-45deg) );
     }
