@@ -259,7 +259,7 @@ class UsersService extends BaseApplicationComponent
 		// If newPassword is set at all, even to an empty string, validate & set it.
 		if ($user->newPassword !== null)
 		{
-			$this->_setPasswordOnUserRecord($user, $userRecord);
+			$this->_setPasswordOnUserRecord($user, $userRecord, false);
 		}
 
 		if ($user->hasErrors())
@@ -423,7 +423,7 @@ class UsersService extends BaseApplicationComponent
 		$userRecord->save();
 
 		return craft()->email->sendEmailByKey($user, 'account_activation', array(
-			'link' => new \Twig_Markup(craft()->config->getActivateAccountPath($unhashedVerificationCode, $userRecord->uid), craft()->templates->getTwig()->getCharset()),
+			'link' => TemplateHelper::getRaw(craft()->config->getActivateAccountPath($unhashedVerificationCode, $userRecord->uid)),
 		));
 	}
 
@@ -502,7 +502,7 @@ class UsersService extends BaseApplicationComponent
 
 		$url = UrlHelper::getActionUrl('users/setpassword', array('code' => $unhashedVerificationCode, 'id' => $userRecord->uid), craft()->request->isSecureConnection() ? 'https' : 'http');
 		return craft()->email->sendEmailByKey($user, 'forgot_password', array(
-			'link' => new \Twig_Markup($url, craft()->templates->getTwig()->getCharset()),
+			'link' => TemplateHelper::getRaw($url),
 		));
 	}
 
@@ -1182,12 +1182,15 @@ class UsersService extends BaseApplicationComponent
 	/**
 	 * Sets a user record up for a new password without saving it.
 	 *
-	 * @param UserModel  $user
-	 * @param UserRecord $userRecord
+	 * @param UserModel  $user                        The user who is getting a new password.
+	 * @param UserRecord $userRecord                  The user’s record.
+	 * @param bool       $updatePasswordResetRequired Whether the user’s
+	 *                                                {@link UserModel::passwordResetRequired passwordResetRequired}
+	 *                                                attribute should be set `false`. Default is `true`.
 	 *
 	 * @return bool
 	 */
-	private function _setPasswordOnUserRecord(UserModel $user, UserRecord $userRecord)
+	private function _setPasswordOnUserRecord(UserModel $user, UserRecord $userRecord, $updatePasswordResetRequired = true)
 	{
 		// Validate the password first
 		$passwordModel = new PasswordModel();
@@ -1210,7 +1213,7 @@ class UsersService extends BaseApplicationComponent
 			$userRecord->verificationCodeIssuedDate = null;
 
 			// If it's an existing user, reset the passwordResetRequired bit.
-			if ($user->id)
+			if ($updatePasswordResetRequired && $user->id)
 			{
 				$userRecord->passwordResetRequired = $user->passwordResetRequired = false;
 			}

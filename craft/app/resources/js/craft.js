@@ -7235,7 +7235,7 @@ Craft.FieldToggle = Garnish.Base.extend(
 						height: this.showTarget._currentHeight,
 						overflow: 'hidden'
 					});
-				$target.stop()
+				$target.velocity('stop')
 					.velocity({height: this.showTarget._targetHeight}, 'fast', function() {
 						$target.height('auto');
 					});
@@ -7268,7 +7268,7 @@ Craft.FieldToggle = Garnish.Base.extend(
 
 				$target
 					.css('overflow', 'hidden')
-					.stop()
+					.velocity('stop')
 					.velocity({height: 0}, 'fast', function() {
 						$target.addClass('hidden');
 					});
@@ -8391,7 +8391,7 @@ Craft.LightSwitch = Garnish.Base.extend(
 
 		var animateCss = {};
 		animateCss['margin-'+Craft.left] = 0;
-		this.$innerContainer.stop().velocity(animateCss, Craft.LightSwitch.animationDuration, $.proxy(this, '_onSettle'));
+		this.$innerContainer.velocity('stop').velocity(animateCss, Craft.LightSwitch.animationDuration, $.proxy(this, '_onSettle'));
 
 		this.$input.val('1');
 		this.$outerContainer.addClass('on');
@@ -8405,7 +8405,7 @@ Craft.LightSwitch = Garnish.Base.extend(
 
 		var animateCss = {};
 		animateCss['margin-'+Craft.left] = this._getOffMargin();
-		this.$innerContainer.stop().velocity(animateCss, Craft.LightSwitch.animationDuration, $.proxy(this, '_onSettle'));
+		this.$innerContainer.velocity('stop').velocity(animateCss, Craft.LightSwitch.animationDuration, $.proxy(this, '_onSettle'));
 
 		this.$input.val('');
 		this.$outerContainer.removeClass('on');
@@ -9104,11 +9104,11 @@ Craft.ProgressBar = Garnish.Base.extend(
 
             if (animate)
             {
-                this.$innerProgressBar.stop().velocity({ width: percentage+'%' }, 'fast');
+                this.$innerProgressBar.velocity('stop').velocity({ width: percentage+'%' }, 'fast');
             }
             else
             {
-                this.$innerProgressBar.stop().width(percentage+'%');
+                this.$innerProgressBar.velocity('stop').width(percentage+'%');
             }
 		}
     }
@@ -9936,7 +9936,7 @@ Craft.StructureDrag = Garnish.Drag.extend(
 		}
 
 		// Animate things back into place
-		this.$draggee.stop().removeClass('hidden').velocity({
+		this.$draggee.velocity('stop').removeClass('hidden').velocity({
 			height: this.draggeeHeight
 		}, 'fast', $.proxy(function() {
 			this.$draggee.css('height', 'auto');
@@ -10348,12 +10348,12 @@ Craft.UpgradeModal = Garnish.Modal.extend(
 			clearTimeout(this.clearCheckoutFormTimeout);
 		}
 
-		this.$compareScreen.stop().animateLeft(-width, 'fast', $.proxy(function()
+		this.$compareScreen.velocity('stop').animateLeft(-width, 'fast', $.proxy(function()
 		{
 			this.$compareScreen.addClass('hidden');
 		}, this));
 
-		this.$checkoutScreen.stop().css(Craft.left, width).removeClass('hidden').animateLeft(0, 'fast');
+		this.$checkoutScreen.velocity('stop').css(Craft.left, width).removeClass('hidden').animateLeft(0, 'fast');
 	},
 
 	onTestBtnClick: function(ev)
@@ -10368,7 +10368,7 @@ Craft.UpgradeModal = Garnish.Modal.extend(
 			{
 				var width = this.getWidth();
 
-				this.$compareScreen.stop().animateLeft(-width, 'fast', $.proxy(function()
+				this.$compareScreen.velocity('stop').animateLeft(-width, 'fast', $.proxy(function()
 				{
 					this.$compareScreen.addClass('hidden');
 				}, this));
@@ -10382,8 +10382,8 @@ Craft.UpgradeModal = Garnish.Modal.extend(
 	{
 		var width = this.getWidth();
 
-		this.$compareScreen.stop().removeClass('hidden').animateLeft(0, 'fast');
-		this.$checkoutScreen.stop().animateLeft(width, 'fast', $.proxy(function()
+		this.$compareScreen.velocity('stop').removeClass('hidden').animateLeft(0, 'fast');
+		this.$checkoutScreen.velocity('stop').animateLeft(width, 'fast', $.proxy(function()
 		{
 			this.$checkoutScreen.addClass('hidden');
 		}, this))
@@ -10494,7 +10494,7 @@ Craft.UpgradeModal = Garnish.Modal.extend(
 			{
 				var width = this.getWidth();
 
-				this.$checkoutScreen.stop().animateLeft(-width, 'fast', $.proxy(function()
+				this.$checkoutScreen.velocity('stop').animateLeft(-width, 'fast', $.proxy(function()
 				{
 					this.$checkoutScreen.addClass('hidden');
 				}, this));

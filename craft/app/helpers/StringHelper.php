@@ -485,6 +485,18 @@ class StringHelper
 		return mb_convert_case($string, MB_CASE_LOWER, "UTF-8");
 	}
 
+	/**
+	 * Backslash-escapes any commas in a given string.
+	 *
+	 * @param $str The string.
+	 *
+	 * @return string
+	 */
+	public static function escapeCommas($str)
+	{
+		return preg_replace('/(?<!\\\),/', '\,', $str);
+	}
+
 	// Private Methods
 	// =========================================================================
 

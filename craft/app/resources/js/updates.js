@@ -61,7 +61,7 @@ Craft.UpdateInfo = Garnish.Base.extend(
 				}
 				else
 				{
-					$graphic.fadeOut('fast');
+					$graphic.velocity('fadeOut', { duration: 'fast' });
 					$status.fadeOut('fast', $.proxy(function()
 					{
 						$graphic.remove();
@@ -132,7 +132,7 @@ Craft.UpdateInfo = Garnish.Base.extend(
 		}
 
 		this.showReleases(this.appUpdateInfo.releases, 'Craft');
-		this.$container.fadeIn('fast');
+		this.$container.velocity('fadeIn', { duration: 'fast' });
 	},
 
 	showLicenseForm: function(originalEvent)
