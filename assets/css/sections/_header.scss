@@ -1,3 +1,5 @@
+$nav-toggle-box-shadow: 0 0 10px rgba($black, 0.05);
+
 .s-header {
   display: none;
   position: fixed;
@@ -15,8 +17,9 @@
   display: block;
   width: 2.25em;
   height: 2.25em;
-  border: 2px solid $black;
+  border: 2px solid $white;
   border-radius: 500px;
+  box-shadow: $nav-toggle-box-shadow;
   background: $white;
   @include transition(all 200ms linear);
   @include transform-origin(center);
@@ -37,7 +40,7 @@
     left: 30%;
     display: block;
     height: 2px;
-    background: $black-2;
+    background: $black;
     @include transition(all 200ms linear);
   }
 
@@ -92,9 +95,9 @@
 
 @include keyframes(navSonar) {
   0% {
-    box-shadow: 0 0 0 10px rgba($primary-1, 1);
+    box-shadow: $nav-toggle-box-shadow, 0 0 0 10px rgba($primary-1, 1);
   }
   100% {
-    box-shadow: 0 0 0 30px rgba($primary-1, 0);
+    box-shadow: $nav-toggle-box-shadow, 0 0 0 30px rgba($primary-1, 0);
   }
 }
