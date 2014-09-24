@@ -1,7 +1,12 @@
 {% extends "layout/base" %}
 
-{% block content %}
+{% if entry.heading is not empty %}
+  {% set title = entry.heading %}
+{% elseif entry.title is not empty %}
+  {% set title = entry.title %}
+{% endif %}
 
+{% block content %}
   <article class="b-page">
     <div class="l-constrained-large b-content a-wow fadeInUp"
           data-wow-delay="0.3s">
