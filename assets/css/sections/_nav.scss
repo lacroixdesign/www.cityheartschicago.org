@@ -1,5 +1,6 @@
-$nav-li-delay-delta: 0.075;
 $nav-li-delay-delta: 0.1;
+$nav-li-timing-func: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+$nav-li-timing-func: ease;
 
 .s-nav {
   background: $black-2;
@@ -40,8 +41,21 @@ $nav-li-delay-delta: 0.1;
   background: rgba($primary-1, 0.95);
   @include transition(opacity 200ms ease-in-out, visibility 200ms ease-in-out);
 
-  ul {
+  .nav-wrap {
     padding: 2em 0;
+  }
+
+  h1 {
+    opacity: 0;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid rgba($white, 0.2);
+    font-family: $font-serif;
+    font-size: 2em;
+    font-weight: normal;
+    font-style: italic;
+    text-transform: none;
+    @include transform( translate(0,1000%) );
   }
 
   li {
@@ -50,6 +64,7 @@ $nav-li-delay-delta: 0.1;
   }
 
   a {
+    display: inline-block;
     border: 0px solid transparent;
     border-width: 0 4px;
     border-radius: 500px;
@@ -76,6 +91,12 @@ $nav-li-delay-delta: 0.1;
     visibility: visible;
     opacity: 1;
 
+    h1 {
+      opacity: 1;
+      @include transform( translate(0,0) );
+      @include animation(navLiSlideIn 300ms $nav-li-timing-func 0s 1);
+    }
+
     li {
       opacity: 1;
       @include transform( translate(0,0) );
@@ -89,7 +110,7 @@ $nav-li-delay-delta: 0.1;
         $delay: unquote("#{ nav-delay($item) }s");
         @include animation(
           navLiRemainHidden $delay ease 0s 1,
-          navLiSlideIn 300ms ease $delay 1
+          navLiSlideIn 300ms $nav-li-timing-func $delay 1
         );
       }
     } // @for
@@ -98,10 +119,10 @@ $nav-li-delay-delta: 0.1;
 
 @include keyframes(navLiRemainHidden) {
   0% {
-    @include transform( translate(0,100000%) );
+    @include transform( translate(0,1000%) );
   }
   100% {
-    @include transform( translate(0,100000%) );
+    @include transform( translate(0,1000%) );
   }
 }
 
