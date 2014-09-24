@@ -13,11 +13,19 @@
 #nav-toggle-btn {
   position: relative;
   display: block;
-  width: 1.5em;
-  height: 1.5em;
+  width: 2.25em;
+  height: 2.25em;
+  border: 2px solid $black;
+  border-radius: 500px;
+  background: $white;
+  @include transition(all 200ms linear);
+  @include transform-origin(center);
+  @include transform( translate(0,0) );
+  @include animation(navSonar 1500ms ease 2);
+  @include animation-delay(3s);
 
   @mixin line-top-position($pos) {
-    $offset: 2px;
+    $offset: 1px;
     top: $pos;
     top: -webkit-calc(#{$pos} - #{$offset});
     top: -moz-calc(#{$pos} - #{$offset});
@@ -26,11 +34,10 @@
 
   .line {
     position: absolute;
-    right: 0;
-    left: 0;
+    right: 30%;
+    left: 30%;
     display: block;
-    height: 4px;
-    border-top: 2px solid $white;
+    height: 2px;
     background: $black-2;
     @include transition(all 200ms linear);
   }
@@ -40,7 +47,7 @@
   .line-3 { top: 80%; }
 
   .js.csstransforms3d & {
-    $line-offset: 0.45em;
+    $line-offset: 0.3em;
 
     .line {
       @include line-top-position(50%);
@@ -57,9 +64,13 @@
   } // .js.csstransforms3d &
 
   .js.csstransforms3d #{$nav-is-open} & {
+    border-color: $white;
+    background: transparent;
+
     .line {
       @include line-top-position(50%);
-      border-color: transparent;
+      right: 25%;
+      left: 25%;
       background: $white;
     }
 
@@ -79,3 +90,12 @@
     }
   } // nav open
 } // #nav-toggle-btn
+
+@include keyframes(navSonar) {
+  0% {
+    box-shadow: 0 0 0 10px rgba($primary-1, 1);
+  }
+  100% {
+    box-shadow: 0 0 0 30px rgba($primary-1, 0);
+  }
+}
