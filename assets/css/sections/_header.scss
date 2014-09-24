@@ -21,8 +21,7 @@
   @include transition(all 200ms linear);
   @include transform-origin(center);
   @include transform( translate(0,0) );
-  @include animation(navSonar 1500ms ease 2);
-  @include animation-delay(3s);
+  @include animation(navSonar 1500ms ease 3s 2);
 
   @mixin line-top-position($pos) {
     $offset: 1px;
