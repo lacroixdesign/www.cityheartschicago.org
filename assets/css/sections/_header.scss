@@ -16,10 +16,16 @@
   width: 1.5em;
   height: 1.5em;
 
+  @mixin line-top-position($pos) {
+    $offset: 2px;
+    top: $pos;
+    top: -webkit-calc(#{$pos} - #{$offset});
+    top: -moz-calc(#{$pos} - #{$offset});
+    top: calc(#{$pos} - #{$offset});
+  }
+
   .line {
     position: absolute;
-    right: 20%;
-    left: 20%;
     right: 0;
     left: 0;
     display: block;
@@ -29,20 +35,30 @@
     @include transition(all 200ms linear);
   }
 
-  .line-1 {
-    top: 20%;
-  }
-  .line-2 {
-    top: 50%;
-  }
-  .line-3 {
-    top: 80%;
-  }
+  .line-1 { top: 20%; }
+  .line-2 { top: 50%; }
+  .line-3 { top: 80%; }
+
+  .js.csstransforms3d & {
+    $line-offset: 0.45em;
+
+    .line {
+      @include line-top-position(50%);
+      @include backface-visibility(hidden);
+      @include transform-origin(center);
+    }
+
+    .line-1 {
+      @include transform( translate(0, -#{$line-offset}) );
+    }
+    .line-3 {
+      @include transform( translate(0, #{$line-offset}) );
+    }
+  } // .js.csstransforms3d &
 
   .js.csstransforms3d #{$nav-is-open} & {
     .line {
       top: 50%;
-      border-color: $primary-1;
       border-color: transparent;
       background: $white;
     }
