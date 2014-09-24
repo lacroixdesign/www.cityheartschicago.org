@@ -1,3 +1,6 @@
+$nav-li-delay-delta: 0.075;
+$nav-li-delay-delta: 0.1;
+
 .s-nav {
   background: $black-2;
   color: $white;
@@ -41,6 +44,11 @@
     padding: 2em 0;
   }
 
+  li {
+    opacity: 0;
+    @include transform( translate(0,1000%) );
+  }
+
   a {
     border: 0px solid transparent;
     border-width: 0 4px;
@@ -57,7 +65,7 @@
 .js.flexbox .s-nav {
   @include justify-content(center);
   @include align-items(center);
-  @include display-box;
+  @include display(flex);
 }
 
 .js #{$nav-is-open} {
@@ -67,5 +75,43 @@
   .s-nav {
     visibility: visible;
     opacity: 1;
-  }
+
+    li {
+      opacity: 1;
+      @include transform( translate(0,0) );
+    }
+
+    @function nav-delay($position) {
+      @return $position * $nav-li-delay-delta;
+    }
+    @for $item from 1 through 50 {
+      li:nth-child(#{$item}){
+        $delay: unquote("#{ nav-delay($item) }s");
+        @include animation(
+          navLiRemainHidden $delay ease 0s 1,
+          navLiSlideIn 300ms ease $delay 1
+        );
+      }
+    } // @for
+  } // .s-nav
 } // .js #{$nav-is-open}
+
+@include keyframes(navLiRemainHidden) {
+  0% {
+    @include transform( translate(0,100000%) );
+  }
+  100% {
+    @include transform( translate(0,100000%) );
+  }
+}
+
+@include keyframes(navLiSlideIn) {
+  0% {
+    opacity: 0;
+    @include transform( translate(0,1000%) );
+  }
+  100% {
+    opacity: 1;
+    @include transform( translate(0,0) );
+  }
+}
