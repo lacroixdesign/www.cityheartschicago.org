@@ -1,8 +1,4 @@
 .s-home {
-  .b-section:nth-child(even) {
-    @extend .b-section.alt;
-  }
-
   .b-slideshow {
     max-width: $max-width;
     margin-right: auto;
