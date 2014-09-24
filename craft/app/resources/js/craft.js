@@ -23,11 +23,12 @@ $.extend(Craft,
 	 * @var object
 	 */
 	asciiCharMap: {
-		'223':'ss', '224':'a',  '225':'a',  '226':'a',  '229':'a',  '227':'ae', '230':'ae', '228':'ae', '231':'c',  '232':'e',
-		'233':'e',  '234':'e',  '235':'e',  '236':'i',  '237':'i',  '238':'i',  '239':'i',  '241':'n',  '242':'o',  '243':'o',
-		'244':'o',  '245':'o',  '246':'oe', '249':'u',  '250':'u',  '251':'u',  '252':'ue', '255':'y',  '257':'aa', '269':'ch',
-		'275':'ee', '291':'gj', '299':'ii', '311':'kj', '316':'lj', '326':'nj', '353':'sh', '363':'uu', '382':'zh', '256':'aa',
-		'268':'ch', '274':'ee', '290':'gj', '298':'ii', '310':'kj', '315':'lj', '325':'nj', '352':'sh', '362':'uu', '381':'zh'
+		'216':'O',  '223':'ss', '224':'a',  '225':'a',  '226':'a',  '229':'a',  '227':'ae', '230':'ae', '228':'ae', '231':'c',
+		'232':'e',  '233':'e',  '234':'e',  '235':'e',  '236':'i',  '237':'i',  '238':'i',  '239':'i',  '241':'n',  '242':'o',
+		'243':'o', 	'244':'o',  '245':'o',  '246':'oe', '248':'o',  '249':'u',  '250':'u',  '251':'u',  '252':'ue', '255':'y',
+		'257':'aa', '269':'ch', '275':'ee', '291':'gj', '299':'ii', '311':'kj', '316':'lj', '326':'nj', '353':'sh', '363':'uu',
+		'382':'zh', '256':'aa', '268':'ch', '274':'ee', '290':'gj', '298':'ii', '310':'kj', '315':'lj', '325':'nj', '352':'sh',
+		'362':'uu', '381':'zh'
 	},
 
 	/**
@@ -5034,7 +5035,7 @@ Craft.AuthManager = Garnish.Base.extend(
 				}
 
 				// Will the session expire before the next checkup?
-				if (this.authTimeout < Craft.AuthManager.quickCheckInterval)
+				if (this.authTimeout < Craft.AuthManager.checkInterval)
 				{
 					if (this.showLoginModalTimer)
 					{
@@ -5050,8 +5051,7 @@ Craft.AuthManager = Garnish.Base.extend(
 				this.showLoginModal();
 			}
 
-			// Check again 5 seconds, in case they're logging in from a different tab
-			this.setCheckAuthTimeoutTimer(Craft.AuthManager.quickCheckInterval);
+			this.setCheckAuthTimeoutTimer(Craft.AuthManager.checkInterval);
 		}
 		else
 		{
@@ -5060,13 +5060,13 @@ Craft.AuthManager = Garnish.Base.extend(
 			this.hideLoginModal();
 
 			// Will be be within the minSafeAuthTimeout before the next update?
-			if (this.authTimeout != -1 && this.authTimeout < (Craft.AuthManager.minSafeAuthTimeout + Craft.AuthManager.normalCheckInterval))
+			if (this.authTimeout != -1 && this.authTimeout < (Craft.AuthManager.minSafeAuthTimeout + Craft.AuthManager.checkInterval))
 			{
 				this.setCheckAuthTimeoutTimer(this.authTimeout - Craft.AuthManager.minSafeAuthTimeout + 1);
 			}
 			else
 			{
-				this.setCheckAuthTimeoutTimer(Craft.AuthManager.normalCheckInterval);
+				this.setCheckAuthTimeoutTimer(Craft.AuthManager.checkInterval);
 			}
 		}
 	},
@@ -5380,8 +5380,7 @@ Craft.AuthManager = Garnish.Base.extend(
 	}
 },
 {
-	normalCheckInterval: 60,
-	quickCheckInterval: 5,
+	checkInterval: 60,
 	minSafeAuthTimeout: 120
 });
 
