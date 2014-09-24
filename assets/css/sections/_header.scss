@@ -58,7 +58,7 @@
 
   .js.csstransforms3d #{$nav-is-open} & {
     .line {
-      top: 50%;
+      @include line-top-position(50%);
       border-color: transparent;
       background: $white;
     }
