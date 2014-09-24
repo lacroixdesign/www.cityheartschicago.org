@@ -2,6 +2,8 @@
 
 {% block content %}
 
+  {% set count = 0 %}
+
   <div class="s-home">
 
     <section id="welcome" class="s-home-intro">
@@ -11,18 +13,25 @@
       </p>
     </section>
 
-    {% set count = 0 %}
-
     <section>
       {% for block in entry.homePageSections %}
 
         {% if block.type == "richText" %}
 
+          {% set image = block.headerImage|first %}
+          {% if image %}
+            {% set count = 0 %}
+          {% endif %}
           {% set count = count + 1 %}
-          <article class="b-section b-rich-text-section {% if count is even %}alt{% endif %}"
-                    {% if block.menuTitle is not empty %}
-                      id="section-{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
-                    {% endif %}>
+          <article class="b-section b-rich-text-section
+              {% if count is even %}alt{% endif %}
+              {% if image %}header-image{% endif %}"
+              {% if block.menuTitle is not empty %}
+                id="section-{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}"
+              {% endif %}>
+            {% if image %}
+              <header style="background-image: url({{ image.url }});"></header>
+            {% endif %}
             <div class="l-constrained-large b-content a-wow fadeInUp"
                   data-wow-delay="0.3s">
               {{ block.body }}

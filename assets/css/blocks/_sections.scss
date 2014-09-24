@@ -1,18 +1,49 @@
+$section-padding-small: 3em;
+$section-padding-large: 3.5em;
+$section-padding-breakpoint: 600px;
+
 .b-page {
   margin-top: 3em;
   margin-bottom: 3em;
 }
 
 .b-section {
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-top: $section-padding-small;
+  padding-bottom: $section-padding-small;
 
   &.alt {
     background: $medium-white;
   }
 
-  @include media-ie(600px) {
-    padding-top: 3.5em;
-    padding-bottom: 3.5em;
+  @include media-ie($section-padding-breakpoint) {
+    padding-top: $section-padding-large;
+    padding-bottom: $section-padding-large;
   }
 } // .b-section
+
+.b-rich-text-section.header-image {
+  $header-height: 20em;
+  padding-top: 0;
+
+  header {
+    position: relative;
+    height: $header-height;
+    background-color: $primary-1;
+    @extend .cover-image;
+  }
+
+  header:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    @include linear-gradient(to bottom, transparent 0%, $white 100%, $fallback: transparent);
+  }
+
+  .b-content {
+    position: relative;
+    margin-top: -#{$header-height / 4};
+  }
+} // .b-rich-text-section
