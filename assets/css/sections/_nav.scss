@@ -94,7 +94,7 @@ $nav-li-timing-func: ease;
     h1 {
       opacity: 1;
       @include transform( translate(0,0) );
-      @include animation(navLiSlideIn 300ms $nav-li-timing-func 0s 1);
+      @include animation(fadeIn 1000ms $nav-li-timing-func 0s 1);
     }
 
     li {
