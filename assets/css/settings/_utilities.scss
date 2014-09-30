@@ -1,1 +1,4 @@
-$nav-is-open: '[data-nav-open="true"]';
+$nav-is-open:     '[data-nav-open="true"]';
+$nav-is-static:   '[data-nav-static="true"]';
+$nav-is-overlay:  '[data-nav-static="false"]';
+$nav-show-toggle: '[data-nav-toggle="true"]';

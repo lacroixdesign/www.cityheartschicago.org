@@ -1,6 +1,6 @@
 @mixin home-intro-large-styles {
-  padding-top: 8em;
-  padding-bottom: 8em;
+  padding-top: 10em;
+  padding-bottom: 10em;
 
   h1 {
     font-size: 6em;
@@ -36,7 +36,12 @@
     }
   } // 375px
 
-  @include media(min-width 600px min-height 500px) {
+  @include media(min-width 400px min-height 500px) {
+    padding-top: 7em;
+    padding-bottom: 7em;
+  }
+
+  @include media(min-width 750px min-height 500px) {
     @include home-intro-large-styles;
   }
 

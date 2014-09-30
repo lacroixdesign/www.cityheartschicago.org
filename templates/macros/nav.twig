@@ -1,0 +1,16 @@
+{% macro items(homepage) %}
+  <li><a href="/">Home</a></li>
+  {% spaceless %}
+  {% for block in homepage.homePageSections %}
+    {% if block.type == "richText" and block.menuTitle is not empty %}
+      <li>
+        <a href="#section-{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}">
+          {{ block.menuTitle }}
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+  <li><a href="#bio">Staff</a></li>
+  <li><a href="#contact">Contact</a></li>
+  {% endspaceless %}
+{% endmacro %}

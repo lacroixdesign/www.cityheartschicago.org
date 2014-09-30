@@ -1,8 +1,9 @@
+$nav-overlay: '.s-nav-overlay';
 $nav-li-delay-delta: 0.1;
 $nav-li-timing-func: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 $nav-li-timing-func: ease;
 
-.s-nav {
+#{$nav-overlay} {
   background: $black-2;
   color: $white;
   font-family: $font-sans;
@@ -24,9 +25,9 @@ $nav-li-timing-func: ease;
   a:hover {
     background: $black-3;
   }
-} // .s-nav
+} // #{$nav-overlay}
 
-.js .s-nav {
+.js #{$nav-overlay} {
   position: fixed;
   top: 0;
   right: 0;
@@ -75,9 +76,9 @@ $nav-li-timing-func: ease;
     border-color: $primary-2;
     background: transparent;
   }
-} // .js .s-nav
+} // .js #{$nav-overlay}
 
-.js.flexbox .s-nav {
+.js.flexbox #{$nav-overlay} {
   @include justify-content(center);
   @include align-items(center);
   @include display(flex);
@@ -87,7 +88,7 @@ $nav-li-timing-func: ease;
   overflow-y: hidden;
   overflow: hidden;
 
-  .s-nav {
+  #{$nav-overlay} {
     visibility: visible;
     opacity: 1;
 
@@ -114,7 +115,7 @@ $nav-li-timing-func: ease;
         );
       }
     } // @for
-  } // .s-nav
+  } // #{$nav-overlay}
 } // .js #{$nav-is-open}
 
 @include keyframes(navLiRemainHidden) {

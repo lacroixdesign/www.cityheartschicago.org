@@ -58,7 +58,8 @@
   {% block head %}{% endblock %}
 </head>
 
-<body>
+<body class="{% if floatNav is defined and floatNav %}is-floating-nav{% endif %}"
+    data-nav-static="false">
   {% include "layout/nav.twig" %}
   {% include "layout/header.twig" %}
 

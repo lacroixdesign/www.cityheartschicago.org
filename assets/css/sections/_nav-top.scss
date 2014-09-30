@@ -1,0 +1,54 @@
+$is-floating-nav: '.is-floating-nav';
+
+.s-nav-top {
+  top: 0;
+  right: 0;
+  left: 0;
+  visibility: hidden;
+  padding: 0 $page-gutter;
+  background: $primary-1;
+  color: $white;
+  font-family: $font-sans;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  @include transition(
+    -webkit-transform 200ms ease,
+    -moz-transform 200ms ease,
+    -ms-transform 200ms ease,
+    transform 200ms ease
+  );
+  @include transform( translate(0,-100%) );
+
+  #{$is-floating-nav} & {
+    position: absolute;
+    z-index: 1000;
+    background: rgba($primary-1, 0.7);
+  }
+
+  #{$nav-is-overlay} & {
+    position: absolute;
+  }
+
+  #{$nav-is-static} & {
+    visibility: visible;
+    @include transform( translate(0,0) );
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    padding: 1.5em 1em;
+    text-decoration: none;
+    line-height: normal;
+  }
+
+  a:hover {
+    background: $primary-2;
+  }
+} // .s-nav-top

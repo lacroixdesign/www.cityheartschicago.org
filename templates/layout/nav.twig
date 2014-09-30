@@ -1,21 +1,18 @@
+{% import "macros/nav.twig" as nav %}
+
 {% set home = craft.entries.slug('homepage').limit(1)|first %}
 
-<nav id="nav" class="s-nav" role="navigation">
+<nav id="nav-top" class="s-nav-top" role="navigation">
+  <ul>
+    {{ nav.items(home) }}
+  </ul>
+</nav>
+
+<nav id="nav" class="s-nav-overlay" role="navigation">
   <div class="nav-wrap">
     <h1>City Hearts</h1>
     <ul>
-      <li><a href="/">Home</a></li>
-      {% for block in home.homePageSections %}
-        {% if block.type == "richText" and block.menuTitle is not empty %}
-          <li>
-            <a href="#section-{{ block.menuTitle|lower|replace('/[^a-zA-Z0-9]/', '-') }}">
-              {{ block.menuTitle }}
-            </a>
-          </li>
-        {% endif %}
-      {% endfor %}
-      <li><a href="#founder-bio">About the Founder</a></li>
-      <li><a href="#contact">Contact</a></li>
+      {{ nav.items(home) }}
     </ul>
   </div>
 </nav>
