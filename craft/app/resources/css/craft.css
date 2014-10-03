@@ -148,8 +148,6 @@ a:hover { text-decoration: underline; }
 
 a.sel, li.sel a { cursor: default !important; text-decoration: none; }
 
-.go { white-space: nowrap; }
-
 .go:after { font-size: 11px; margin-top: -1px; color: #b9bfc6; }
 body.ltr .go:after { padding-left: 4px; }
 body.rtl .go:after { padding-right: 4px; }
@@ -795,9 +793,6 @@ body.rtl .structure li .toggle { margin: 4px -12px 0 -8px; }
 .structure li .row:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
 
 .elementindex .structure li .toggle { background-color: #fff; }
-
-body.ltr .structure li .element { float: left; }
-body.rtl .structure li .element { float: right; }
 
 .structure li .icon { opacity: 0; -webkit-transition: opacity linear 100ms; -moz-transition: opacity linear 100ms; }
 body.ltr .structure li .icon { margin: 5px 5px 0 0; }
