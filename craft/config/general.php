@@ -10,24 +10,24 @@
 // Public root: $_SERVER['DOCUMENT_ROOT']
 
 $url = getenv('SITE_URL');
-if ( empty($url) ) {
-  exit('URL environment variable has not been set.');
+if (empty($url)) {
+    exit('URL environment variable has not been set.');
 }
 
 $dev = getenv('CRAFT_ENV') == 'development' ? true : false;
 
 return array(
 
-  '*' => array(
-    'omitScriptNameInUrls' => true,
-    'cacheMethod' => 'file',
-    'devMode' => $dev,
-    'siteUrl' => $url,
-    'environmentVariables' => array()
-  ),
+    '*' => array(
+        'omitScriptNameInUrls' => true,
+        'cacheMethod' => 'file',
+        'devMode' => $dev,
+        'siteUrl' => $url,
+        'environmentVariables' => array()
+    ),
 
-  '.dev' => array(
-    'cacheMethod' => 'file'
-  )
+    '.dev' => array(
+        'cacheMethod' => 'file'
+    )
 
 );
