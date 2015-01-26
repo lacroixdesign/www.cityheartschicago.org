@@ -1,11 +1,25 @@
 .env
+.php-version
 node_modules
+tmp/*
+
+# IntelliJ
+.idea/*
+
+# Composer
+vendor/*
+!vendor/.gitkeep
 
 # Craft
+craft/config/license.key
 craft/storage/backups/
 craft/storage/runtime/
 craft/storage/userphotos/
+craft/storage/logo/
 
 public/cache/
-public/content/images/*
+
+# Uploads
+public/content/
+!public/content/docs/.gitkeep
 !public/content/images/.gitkeep
