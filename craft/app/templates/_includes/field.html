@@ -3,7 +3,10 @@
 
 {% set value = (element ? element.getFieldValue(field.handle) : null) %}
 {% set errors = (element and not static ? element.getErrors(field.handle) : null) %}
-{% set fieldtype = craft.fields.populateFieldType(field, element) %}
+{% set fieldtype = field.getFieldType() %}
+{% if element %}
+	{% do fieldtype.setElement(element) %}
+{% endif %}
 {% set instructions = (not static ? field.instructions|t : null) %}
 
 {% if fieldtype %}
@@ -21,7 +24,7 @@
 		label: field.name|t|e,
 		locale: field.translatable ? (locale is defined ? locale : (element ? element.locale : craft.locale)),
 		required: (not static ? required : false),
-		instructions: instructions,
+		instructions: instructions|e,
 		id: field.handle,
 		errors: errors,
 		input: input
