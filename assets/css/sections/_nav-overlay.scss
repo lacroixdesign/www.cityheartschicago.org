@@ -4,26 +4,35 @@ $nav-li-timing-func: cubic-bezier(0.075, 0.820, 0.165, 1.000);
 $nav-li-timing-func: ease;
 
 #{$nav-overlay} {
-  background: $black-2;
+  background: $primary-1;
   color: $white;
   font-family: $font-sans;
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
 
+  h1 {
+    display: none;
+  }
+
   ul {
     display: inline-block;
     margin: auto;
   }
 
+  li {
+    display: inline-block;
+  }
+
   a {
     display: block;
     padding: 0.5em 1em;
+    border-radius: 500px;
     text-decoration: none;
   }
 
   a:hover {
-    background: $black-3;
+    background: $primary-2;
   }
 } // #{$nav-overlay}
 
@@ -38,7 +47,6 @@ $nav-li-timing-func: ease;
   overflow-y: auto;
   visibility: hidden;
   opacity: 0;
-  background: $primary-1;
   background: rgba($primary-1, 0.95);
   @include transition(opacity 200ms ease-in-out, visibility 200ms ease-in-out);
 
@@ -47,34 +55,27 @@ $nav-li-timing-func: ease;
   }
 
   h1 {
+    display: block;
     opacity: 0;
     padding-bottom: 0.5em;
     margin-bottom: 0.5em;
     border-bottom: 1px solid rgba($white, 0.2);
     font-family: $font-serif;
     font-size: 2em;
-    font-weight: normal;
+    font-weight: bold;
     font-style: italic;
     text-transform: none;
     @include transform( translate(0,1000%) );
   }
 
   li {
+    display: block;
     opacity: 0;
     @include transform( translate(0,1000%) );
   }
 
   a {
-    display: inline-block;
-    border: 0px solid transparent;
-    border-width: 0 4px;
-    border-radius: 500px;
     @include transition(border-color 100ms ease-in-out);
-  }
-
-  a:hover {
-    border-color: $primary-2;
-    background: transparent;
   }
 } // .js #{$nav-overlay}
 

@@ -6,7 +6,6 @@ $is-floating-nav: '.is-floating-nav';
   left: 0;
   visibility: hidden;
   padding: 0 $page-gutter;
-  background: $primary-1;
   color: $white;
   font-family: $font-sans;
   font-size: 0.75em;
@@ -24,7 +23,6 @@ $is-floating-nav: '.is-floating-nav';
   #{$is-floating-nav} & {
     position: absolute;
     z-index: 1000;
-    background: rgba($primary-1, 0.7);
   }
 
   #{$nav-is-overlay} & {

@@ -2,8 +2,9 @@
   padding-top: 10em;
   padding-bottom: 10em;
 
-  h1 {
-    font-size: 6em;
+  .s-home-intro__logo {
+    max-width: 30em;
+    margin-bottom: 3em;
   }
 
   p {
@@ -12,15 +13,23 @@
 } // home-intro-large-styles
 
 .s-home-intro {
-  padding: 4em $page-gutter;
+  padding: 6em $page-gutter 4em;
   @extend .cover-image;
   background-color: $black;
   background-image: image-url('backgrounds/city-hearts-group.jpg');
   color: $white;
   text-align: center;
 
-  h1 {
-    font-size: 2em;
+  .s-home-intro__logo {
+    max-width: 15em;
+    margin: 0 auto 2em;
+
+    img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
   }
 
   p {
@@ -29,12 +38,6 @@
     font-size: 1em;
     font-style: italic;
   }
-
-  @include media(375px) {
-    h1 {
-      font-size: 4em;
-    }
-  } // 375px
 
   @include media(min-width 400px min-height 500px) {
     padding-top: 7em;
