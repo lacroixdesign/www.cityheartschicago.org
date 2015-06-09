@@ -1,4 +1,4 @@
-var _ = require('lodash/dist/lodash.compat.min.js');
+var _ = require('lodash-compat');
 
 var NAV_EL = '#nav-top';
 var STATIC_NAV_ATTR = 'data-nav-static';

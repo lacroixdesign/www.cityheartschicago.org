@@ -1,17 +1,46 @@
-/*
-  gulpfile.js
-  ===========
-  Rather than manage one giant configuration file responsible
-  for creating multiple tasks, each task has been broken out into
-  its own file in gulp/tasks. Any files in that directory get
-  automatically required below.
+var gulp = require('gulp')
+,   gutil = require('gulp-util')
+,   webpack = require('webpack')
+,   tinylr = require('tiny-lr')
+,   webpackConfig = require("./webpack.config.js")
+;
 
-  To add a new task, simply add a new task file that directory.
-  gulp/tasks/default.js specifies the default set of tasks to run
-  when you run `gulp`.
-*/
+var devConfig = Object.create(webpackConfig);
+devConfig.watch = true;
+// devConfig.plugins.push( new webpack.optimize.UglifyJsPlugin() );
+// devConfig.plugins.push( new webpack.optimize.OccurenceOrderPlugin() );
 
-var requireDir = require('require-dir');
+var execWebpack = function (config) {
+  webpack(config, function (err, stats) {
+    if (err)
+      throw new gutil.PluginError("webpack", err);
+    gutil.log("[webpack]", stats.toString({colors: true}));
+  });
+};
 
-// Require all tasks in gulp/tasks, including subfolders
-requireDir('./gulp/tasks', { recurse: true });
+var lrServer = function(lrport) {
+  var lr = tinylr();
+  lr.listen(lrport, function() {
+    gutil.log("LiveReload listening on", lrport);
+  });
+  return lr;
+};
+
+gulp.task('webpack', function (callback) {
+  execWebpack(devConfig);
+  callback();
+});
+
+gulp.task('watch', function() {
+  var lr = lrServer(35729);
+  gulp.watch(['./public/assets/**/*.css'], function (evt) {
+    gutil.log(gutil.colors.cyan(evt.path), 'changed');
+    lr.changed({
+      body: {
+        files: [ evt.path ]
+      }
+    });
+  });
+});
+
+gulp.task('default', ['webpack', 'watch']);

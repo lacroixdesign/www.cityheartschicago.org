@@ -1,20 +1,22 @@
-/*  IcoMoon -- Icon Font
-*/
+/*
+ * IcoMoon -- Icon Font
+ */
 
-@include font-face('icomoon', 'icomoon/icomoon', normal, $asset-pipeline: true);
+@include font-face('icomoon', '../fonts/icomoon/icomoon', normal,
+  $asset-pipeline: false, $file-formats: eot woff ttf svg);
 
 [data-icon]:before {
+  display: inline-block;
   font-family: 'icomoon';
+  font-weight: normal;
+  font-style: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
   content: attr(data-icon);
   speak: none;
-  font-weight: normal;
-  line-height: 1;
-  display: inline-block;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-style: normal;
 }
 
-[data-icon]{
+[data-icon] {
   display: inline-block;
 }

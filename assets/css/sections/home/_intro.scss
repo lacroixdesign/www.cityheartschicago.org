@@ -16,7 +16,7 @@
   padding: 6em $page-gutter 4em;
   @extend .cover-image;
   background-color: $black;
-  background-image: image-url('backgrounds/city-hearts-group.jpg');
+  background-image: url('../images/backgrounds/city-hearts-group.jpg');
   color: $white;
   text-align: center;
 
